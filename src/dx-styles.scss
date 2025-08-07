@@ -1,0 +1,96 @@
+/* DevExtreme样式定制文件
+   提供应用全局样式定义和响应式布局支持
+   包含页面布局、组件样式和响应式设计相关的SCSS样式 */
+
+/* === 内容区域样式 === */
+/* 主要内容容器，提供基础的文本行高和弹性布局 */
+.content {
+  line-height: 1.5;           /* 文本行高，提高可读性 */
+  flex-grow: 1;               /* 占据剩余空间 */
+
+  /* 二级标题样式定制 */
+  h2 {
+    font-size: 30px;          /* 标题字体大小 */
+    margin-top: 20px;         /* 上边距 */
+    margin-bottom: 20px;      /* 下边距 */
+  }
+}
+
+/* === 容器布局样式 === */
+/* 应用主容器，垂直方向弹性布局 */
+.container {
+  height: 100%;               /* 占满父容器高度 */
+  flex-direction: column;     /* 垂直方向排列 */
+  display: flex;              /* 弹性布局 */
+}
+
+/* 布局主体区域，占据剩余空间 */
+.layout-body {
+  flex: 1;                    /* 占据剩余空间 */
+  min-height: 0;              /* 最小高度为0，防止溢出 */
+}
+
+/* === DevExtreme组件样式定制 === */
+/* 侧边导航外部工具栏布局中的抽屉组件高度调整 */
+.side-nav-outer-toolbar .dx-drawer {
+  height: calc(100% - 56px)   /* 减去头部工具栏高度(56px) */
+}
+
+/* === 响应式内容块样式 === */
+/* 内容块通用样式，提供响应式边距 */
+.content-block {
+  margin-left: 40px;          /* 左边距 */
+  margin-right: 40px;         /* 右边距 */
+  margin-top: 20px;           /* 上边距 */
+
+  /* 超小屏幕响应式处理 */
+  .screen-x-small & {
+    margin-left: 20px;        /* 小屏幕减少左边距 */
+    margin-right: 20px;       /* 小屏幕减少右边距 */
+  }
+}
+
+/* === 响应式内边距工具类 === */
+/* 响应式内边距，根据屏幕尺寸自动调整 */
+.responsive-paddings {
+  padding: 20px;              /* 默认内边距 */
+
+  /* 大屏幕设备增加内边距 */
+  .screen-large & {
+    padding: 40px;            /* 大屏幕使用更大的内边距 */
+  }
+}
+
+/* === DevExtreme卡片组件定制 === */
+/* 宽卡片样式，适用于表格等需要全宽显示的组件 */
+.dx-card.wide-card {
+  border-radius: 0;           /* 移除圆角 */
+  margin-left: 0;             /* 移除左边距 */
+  margin-right: 0;            /* 移除右边距 */
+  border-right: 0;            /* 移除右边框 */
+  border-left: 0;             /* 移除左边框 */
+}
+
+/* === 滚动视图样式定制 === */
+/* 带页脚的滚动视图样式，确保内容正确显示 */
+.with-footer > .dx-scrollable-wrapper >
+.dx-scrollable-container > .dx-scrollable-content {
+  height: 100%;               /* 占满父容器高度 */
+
+  /* 滚动内容区域样式 */
+  & > .dx-scrollview-content {
+    display: flex;            /* 弹性布局 */
+    flex-direction: column;   /* 垂直方向排列 */
+    min-height: 100%;         /* 最小高度占满父容器 */
+  }
+}
+
+/* === 应用根元素样式 === */
+/* Vue应用根元素，确保占满整个视口 */
+#app {
+  height: 100%;               /* 占满视口高度 */
+ }
+
+/* === SCSS变量定义 === */
+/* 侧边面板最小宽度，用于响应式设计和组件尺寸计算 */
+$side-panel-min-width: 60px;

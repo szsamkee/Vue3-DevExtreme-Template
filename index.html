@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- HTML5文档类型声明，确保浏览器使用标准模式渲染 -->
+<html lang="en">
+  <!-- HTML根元素，设置页面语言为英文 -->
+  <head>
+    <!-- === 基础Meta配置 === -->
+    <!-- 字符编码设置，支持国际化字符 -->
+    <meta charset="UTF-8" />
+    
+    <!-- 视口配置，确保在移动设备上正确显示 -->
+    <!-- width=device-width: 视口宽度等于设备宽度 -->
+    <!-- initial-scale=1.0: 初始缩放比例为100% -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- === 网站图标配置 === -->
+    <!-- 设置浏览器标签页图标，路径基于vue.config.js中定义的publicPath -->
+    <link rel="icon" href="/favicon.ico">
+    
+    <!-- === DevExtreme主题样式配置 === -->
+    <!-- DevExtreme Material Design主题文件集合 -->
+    <!-- 通过JavaScript动态启用/禁用对应主题，实现主题切换功能 -->
+    
+    <!-- 橙色浅色主题 - 默认主题 -->
+    <link rel="stylesheet" crossorigin="anonymous" href="/dx.material.orange.light.css"> 
+    
+    <!-- 蓝色浅色主题 -->
+    <link rel="stylesheet" crossorigin="anonymous" href="/dx.material.blue.light.css">
+    
+    <!-- 紫色浅色主题 -->
+    <link rel="stylesheet" crossorigin="anonymous" href="/dx.material.purple.light.css">
+    
+    <!-- 紫色深色主题 -->
+    <link rel="stylesheet" crossorigin="anonymous" href="/dx.material.purple.dark.css">
+    
+    <!-- === 自定义主题附加样式 === -->
+    <!-- 应用自定义的主题扩展样式，用于覆盖或补充DevExtreme默认样式 -->
+    
+    <!-- 浅色模式附加样式 -->
+    <link rel="stylesheet" crossorigin="anonymous" href="/theme.additional.light.css">
+    
+    <!-- 深色模式附加样式 -->
+    <link rel="stylesheet" crossorigin="anonymous" href="/theme.additional.dark.css">
+    
+    <!-- === Vue应用入口脚本 === -->
+    <!-- Vite模块加载方式，引入Vue应用主入口文件 -->
+    <!-- type="module": 使用ES6模块标准 -->
+    <!-- src="/src/main.js": 指向Vue应用的启动文件 -->
+    <script type="module" src="/src/main.js"></script>
+    
+    <!-- === 页面标题 === -->
+    <!-- 浏览器标签页显示的标题 -->
+    <title>Vite + Vue + JS + Devextreme Template</title>
+  </head>
+  
+  <!-- === 页面主体 === -->
+  <!-- body元素添加DevExtreme视口类，确保组件正确渲染 -->
+  <!-- dx-viewport: DevExtreme全局样式类，提供统一的视觉主题 -->
+  <body class="dx-viewport">
+    <!-- Vue应用挂载点 -->
+    <!-- id="app": Vue应用将挂载到此元素上 -->
+    <!-- 对应main.js中的 app.mount('#app') -->
+    <div id="app"></div>
+  </body>
+</html>
