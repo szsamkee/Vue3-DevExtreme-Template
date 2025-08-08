@@ -56,7 +56,11 @@ class ApiService {
     // 根据用户权限动态获取可访问的菜单结构
     // 返回值：Promise<Array> - 菜单项数组，用于构建导航菜单
     async getMenuItems() {
-      return await httpService.get('/Auth/GetMenuItems');
+      var currentLanguage = window.localStorage["localizationLanguage"];
+      if (!currentLanguage) { // 如果没有设置语言，默认使用中文
+        currentLanguage = "ZH-CN";
+      }
+      return await httpService.get('/Auth/GetMenuItems', { params: { language: currentLanguage } });
     }
   };
 

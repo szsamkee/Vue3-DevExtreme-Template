@@ -3,9 +3,9 @@
 // 支持中文(ZH)、越南语(VI)、日语(JA)三种语言
 
 // 导入自定义语言包文件
-import locale_Zh_Message from './localization.zh.json';    // 中文语言包
-import locale_Vi_Message from './localization.vi.json';    // 越南语语言包
-import locale_Ja_Message from './localization.ja.json';    // 日语语言包
+import locale_Zh_Message from './localization.zh-cn.json';    // 中文语言包
+import locale_Vi_Message from './localization.vi-vn.json';    // 越南语语言包
+import locale_Ja_Message from './localization.ja-jp.json';    // 日语语言包
 
 // 导入DevExtreme组件库的官方语言包
 import cnMessage from 'devextreme/localization/messages/zh.json'  // DevExtreme中文
@@ -23,9 +23,9 @@ var currentLanguage = getLocalLanguage();
 // 用于登录页面的语言选择下拉菜单
 export function getSupportLanguage() {
     return [
-        {code:'ZH', name:'中文'},          // 中文选项
-        {code:'VI', name:'Tiếng Việt'},   // 越南语选项
-        {code:'JA', name:'日本語'}        // 日语选项
+        {code:'ZH-CN', name:'中文'},          // 中文选项
+        {code:'VI-VN', name:'Tiếng Việt'},   // 越南语选项
+        {code:'JA-JP', name:'日本語'}        // 日语选项
     ];
 }
 
@@ -37,15 +37,15 @@ export function initLocalLanguage() {
     currentLanguage = getLocalLanguage();
     
     // 根据语言代码加载对应的DevExtreme语言包
-    if (currentLanguage == "ZH") {
+    if (currentLanguage == "ZH-CN") {
         loadMessages(cnMessage);    // 加载中文语言包到DevExtreme
         locale("zh-CN");           // 设置DevExtreme的locale为中文
     }
-    else if (currentLanguage == "VI") {
+    else if (currentLanguage == "VI-VN") {
         loadMessages(viMessage);    // 加载越南语语言包到DevExtreme
         locale("vi-VN");           // 设置DevExtreme的locale为越南语
     }
-    else if (currentLanguage == "JA") {
+    else if (currentLanguage == "JA-JP") {
         loadMessages(jaMessage);    // 加载日语语言包到DevExtreme
         locale("ja-JP");           // 设置DevExtreme的locale为日语
     }
@@ -60,7 +60,7 @@ export function getLocalLanguage() {
     
     // 如果没有设置过语言，默认使用中文
     if (!currentLanguage) {
-        currentLanguage = "ZH";
+        currentLanguage = "ZH-CN";
         // 将默认语言保存到localStorage
         window.localStorage["localizationLanguage"] = currentLanguage;
     }
@@ -71,7 +71,7 @@ export function getLocalLanguage() {
 
 // 设置本地化语言
 // 将用户选择的语言保存到localStorage，下次访问时生效
-// 参数：language - 语言代码（ZH/VI/JA）
+// 参数：language - 语言代码（ZH-CN/VI-VN/JA-JP）
 export function setLocalLanguage(language) {
     // 将语言代码转换为大写并保存到localStorage
     window.localStorage["localizationLanguage"] = language.toUpperCase();
@@ -87,15 +87,15 @@ export function loadLocalMsg(msgId) {
         
         // 根据当前语言从对应的语言包中获取文本
         switch (currentLanguage) {
-            case "ZH":
+            case "ZH-CN":
                 // 从中文语言包获取文本
                 msg = locale_Zh_Message[msgId];
                 break;
-            case "VI":
+            case "VI-VN":
                 // 从越南语语言包获取文本
                 msg = locale_Vi_Message[msgId];
                 break;
-            case "JA":
+            case "JA-JP":
                 // 从日语语言包获取文本
                 msg = locale_Ja_Message[msgId];
                 break;
